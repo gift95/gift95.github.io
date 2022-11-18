@@ -7,9 +7,9 @@ menu:
   分类: /categories/ || fa fa-archive
   标签: /tags/ || fa fa-tags
   归档: /archives/ || fa fa-folder-open
-  我们的故事||fas fa-book :
-      ForLove:  /Love-and-Story/ || fa-solid fa-heart-circle-bolt
-      旅行日记: /Travel/ ||  fas fa-map-marked
+ # 我们的故事||fas fa-book :
+  我们的故事:  /Love-and-Story/ || fa-solid fa-heart-circle-bolt
+  旅行日记: /Travel/ ||  fas fa-map-marked
  # 友链: /links/ || fa fa-link
   留言板: /messageboard/ || fa fa-paper-plane
   关于笔者: /about/ || fa  fa-binoculars  
