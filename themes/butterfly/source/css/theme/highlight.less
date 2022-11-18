@@ -1,0 +1,221 @@
+/*
+ * @description: 代码块相关
+ * @author: 小康
+ * @url: https://xiaokang.me
+ * @Date: 2021-01-03 14:40:24
+ * @LastEditTime: 2021-01-03 18:29:07
+ * @LastEditors: 小康
+ */
+/* 代码字体 */
+@font-face {
+  font-family: MyFont;
+  src: url(@codefont);
+}
+#article-container {
+  figure {
+    &.highlight {
+      .highlight-tools {
+        color: #a9a9a9;
+        background: #eee;
+        .code-expand {
+          & + .code-lang {
+            display: none;
+            font-family: MyFont;
+          }
+          &.code-closed {
+            & + .code-lang {
+              display: block;
+            }
+          }
+        }
+        .code-lang {
+          left: 50% !important;
+          transform: translateX(-50%);
+          font-size: 0.7rem;
+        }
+        &:after {
+          width: 10px;
+          height: 10px;
+        }
+      }
+      &:hover {
+        .highlight-tools {
+          .code-expand {
+            & + .code-lang {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+  code,
+  pre {
+    font-family: MyFont !important;
+  }
+}
+
+[data-theme='dark'] .highlight pre .comment {
+  color: rgba(255, 255, 255, 0.5);
+}
+@var1: #3f51b5;
+@var2: #9c27b0;
+@var3: #4ba7ee;
+@var4: #fd8607;
+@var5: #ff9800;
+@var6: #449e48;
+@var7: #4caf50;
+@var8: #66cccc;
+@var9: #6699cc;
+@var10: #ee2b29;
+@var11: #17afca;
+@var12: #fb3f1b;
+@var13: #1e80f0;
+@var14: #3fa33f;
+@var15: #e24f5a;
+
+.highlight pre .marked {
+  background-color: rgba(254, 213, 66, 0.4);
+  padding: 2px 8px 2px 0;
+  border-radius: 2px;
+  width: 100%;
+}
+.highlight pre .title,
+.highlight pre .attr,
+.highlight pre .attribute {
+  color: @var1;
+}
+.highlight pre .comment {
+  color: rgba(85, 85, 85, 0.5);
+}
+.highlight pre .keyword,
+.highlight pre .meta-keyword,
+.highlight pre .javascript .function {
+  color: @var2;
+}
+.highlight pre .type,
+.highlight pre .built_in,
+.highlight pre .tag .name {
+  color: @var3;
+}
+.highlight pre .variable,
+.highlight pre .regexp,
+.highlight.ruby pre .constant,
+.highlight.xml pre .tag .title,
+.highlight.xml pre .pi,
+.highlight.xml pre .doctype,
+.highlight.html pre .doctype,
+.highlight.css pre .id,
+.highlight.css pre .class,
+.highlight.css pre .selector-id,
+.highlight.css pre .pseudo {
+  color: @var4;
+}
+.highlight pre .number,
+.highlight pre .preprocessor,
+.highlight pre .literal,
+.highlight pre .constant {
+  color: @var4;
+}
+.highlight pre .class,
+.highlight.ruby pre .class .title,
+.highlight.css pre .rules .attribute {
+  color: @var5;
+}
+.highlight pre .string,
+.highlight pre .meta-string {
+  color: @var6;
+}
+.highlight pre .value,
+.highlight pre .inheritance,
+.highlight pre .header,
+.highlight.ruby pre .symbol,
+.highlight.xml pre .cdata {
+  color: @var7;
+}
+.highlight.css pre .hexcolor {
+  color: @var8;
+}
+.highlight pre .function,
+.highlight.python pre .decorator,
+.highlight.python pre .title,
+.highlight.ruby pre .function .title,
+.highlight.ruby pre .title .keyword,
+.highlight.perl pre .sub,
+.highlight.javascript pre .title,
+.highlight.coffeescript pre .title {
+  color: @var9;
+}
+.highlight.html .line .tag .name,
+.highlight.css .line .tag .name,
+.highlight.less .line .tag .name,
+.highlight.stylus .line .tag .name,
+.highlight.html .line .selector-tag,
+.highlight.css .line .selector-tag,
+.highlight.less .line .selector-tag,
+.highlight.stylus .line .selector-tag {
+  color: @var10;
+}
+.highlight.html .line .selector-class,
+.highlight.css .line .selector-class,
+.highlight.less .line .selector-class,
+.highlight.stylus .line .selector-class,
+.highlight.html .line .selector-attr,
+.highlight.css .line .selector-attr,
+.highlight.less .line .selector-attr,
+.highlight.stylus .line .selector-attr {
+  color: @var4;
+}
+.highlight.html .line .attribute,
+.highlight.css .line .attribute,
+.highlight.less .line .attribute,
+.highlight.stylus .line .attribute {
+  color: @var1;
+}
+.highlight.html .line .number,
+.highlight.css .line .number,
+.highlight.less .line .number,
+.highlight.stylus .line .number {
+  color: @var11;
+}
+.highlight.objc .line .meta,
+.highlight.objectivec .line .meta,
+.highlight.swift .line .meta,
+.highlight.c .line .meta {
+  color: @var2;
+}
+.highlight.objc .line .meta-string,
+.highlight.objectivec .line .meta-string,
+.highlight.swift .line .meta-string,
+.highlight.c .line .meta-string,
+.highlight.objc .line .string,
+.highlight.objectivec .line .string,
+.highlight.swift .line .string,
+.highlight.c .line .string {
+  color: @var12;
+}
+.highlight.objc .line .class,
+.highlight.objectivec .line .class,
+.highlight.swift .line .class,
+.highlight.c .line .class {
+  color: rgba(85, 85, 85, 0.9);
+  .title {
+    color: @var13;
+  }
+}
+.highlight.objc .line .comment,
+.highlight.objectivec .line .comment,
+.highlight.swift .line .comment,
+.highlight.c .line .comment,
+.highlight.css .line .selector-pseudo {
+  color: @var14;
+}
+.highlight.json .line .attr {
+  color: @var15;
+}
+.highlight.json .line .literal {
+  color: @var1;
+}
+.highlight.yaml .line .attr {
+  color: @var15;
+}

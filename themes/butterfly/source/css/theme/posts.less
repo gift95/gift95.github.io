@@ -1,0 +1,41 @@
+/*
+ * @description: 页面及文章相关美化
+ * @author: 小康
+ * @url: https://xiaokang.me
+ * @Date: 2021-01-03 10:57:16
+ * @LastEditTime: 2021-04-06 21:18:14
+ * @LastEditors: 小康
+ */
+// 无banner时标题居中 文章、页面
+#post > #post-info,
+#page h1.page-title {
+  text-align: center;
+}
+// 页面标题美化
+.post when (@beautify=true) {
+  #content-inner {
+    // 字体放大
+    font-size: 1.1em;
+  }
+  .post-content h2:before,
+  .post-content h3:before,
+  .post-content h4:before,
+  .post-content h5:before {
+    margin-right: 0.3rem;
+    color: #49b1f5;
+    font-size: 0.75em;
+  }
+  .post-content h2:before {
+    // h2标题前显示的内容
+    content: 'H2';
+  }
+  .post-content h3:before {
+    content: 'H3';
+  }
+  .post-content h4:before {
+    content: 'H4';
+  }
+  .post-content h5:before {
+    content: 'H5';
+  }
+}

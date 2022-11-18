@@ -1,0 +1,21 @@
+#footer-wrap
+  if theme.footer.owner.enable
+    - var now = new Date()
+    - var nowYear = now.getFullYear()
+    if theme.footer.owner.since && theme.footer.owner.since != nowYear
+      .copyright!= `&copy;<font color="#58abf3">${theme.footer.owner.since} - ${nowYear + ' '} </font><i id="heartbeat" class="fa fas fa-heartbeat"></i>  <font color="#58abf3">${config.author}</font>`
+    else
+      .copyright!= `&copy;<font color="#58abf3">${nowYear + ' '}</font> <i  id="heartbeat" class="fa fas fa-heartbeat"></i>  <font color="#58abf3">${config.author} </font>`
+  if theme.footer.copyright
+    .framework-info
+      span= _p('footer.framework') + ' '
+      <a target="_blank" href="https://hexo.io" style="color:#C71585;font-weight: bold;"> Hexo</a>
+      span.footer-separator |
+      span= _p('footer.theme') + ' '
+      <a target="_blank" href="https://github.com/jerryc127/hexo-theme-butterfly" style="color:#C71585;font-weight: bold;">Butterfly</a>
+    .framework-info1 
+  if theme.footer.custom_text
+    .footer_custom_text!=`${theme.footer.custom_text}`
+    
+
+
