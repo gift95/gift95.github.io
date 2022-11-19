@@ -12,6 +12,7 @@
     "version": "6.3.0"
   },
   "dependencies": {
+    "core-js": "^3.26.1",
     "gulp": "^4.0.2",
     "hexo": "^6.2.0",
     "hexo-abbrlink": "^2.2.1",
