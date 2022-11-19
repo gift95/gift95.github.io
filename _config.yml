@@ -121,7 +121,7 @@ browsersync:
   instanceName: "uniqueString"
   
 encrypt:
-    enable: true
+    enable: false
 
   #【模型宠物】 添加  
 live2d:
