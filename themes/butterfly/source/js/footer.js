@@ -1,5 +1,5 @@
 $(document).ready(function(e){
-    $('.framework-info1').html('本站已运行<span id=span_dt_dt ></span>');
+    $('.framework-info1').html('这个小破站已运行<span id=span_dt_dt ></span>');
 })
 /*建站时间*/
 function show_date_time() {
