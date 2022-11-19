@@ -12,6 +12,7 @@
     "version": "6.3.0"
   },
   "dependencies": {
+    "constantinople": "^4.0.1",
     "core-js": "^3.26.1",
     "gulp": "^4.0.2",
     "hexo": "^6.2.0",
@@ -36,7 +37,8 @@
     "hexo-server": "^3.0.0",
     "hexo-theme-butterfly": "^4.3.1",
     "hexo-theme-landscape": "^0.0.3",
-    "hexo-wordcount": "^6.0.1"
+    "hexo-wordcount": "^6.0.1",
+    "jstransformer": "^1.0.0"
   },
   "devDependencies": {
     "gulp-cssnano": "^2.1.3",
