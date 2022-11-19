@@ -110,12 +110,15 @@ deploy:
     branch: dev
     
 lazyload:
-    enable: true  # 是否开启图片懒加载
-    onlypost: true  # 是否只对文章的图片做懒加载
+    enable: true# 是否开启图片懒加载
+    onlypost: true# 是否只对文章的图片做懒加载
     loadingImg: https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg  # 懒加载图片放自己喜欢的      
   
-  
-  
+encrypt:
+    enable: true
+    wrong_pass_message: 抱歉, 这个密码看着不太对, 请再试试.
+    wrong_hash_message: 抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.  
+
   #【模型宠物】 添加  
 live2d:
     enable: true
