@@ -5,6 +5,7 @@ comments: false
 top_img: http://js.hnlyx.top/img/064891f4c5191489caddd5b74ea9c1bf.jpg
 ---
 
+------
 
 2022.10.9
 
@@ -12,7 +13,7 @@ top_img: http://js.hnlyx.top/img/064891f4c5191489caddd5b74ea9c1bf.jpg
 
   今天晚上你告诉我以后在一起，我很突然，但是我没有拒绝。可能说话没有用肯定，我觉得太突然，猝不及防。我与你的交流从那一刻开始多了起来。
 
--——
+------
 
 2022.11.9
 
