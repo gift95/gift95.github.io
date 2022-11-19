@@ -622,8 +622,8 @@ subtitle:
   source: false
   # 如果關閉打字效果，subtitle 只會顯示 sub 的第一行文字
   sub:
-    - 如果没有死亡， 一切都是擦伤。
-    - 生命是个礼物， 生活亦如此,你也是。
+    #  - 如果没有死亡， 一切都是擦伤。
+    - 生命是个礼物， 生活亦如此,你亦如此。
 # Loading Animation (加載動畫)
 preloader: true
 
