@@ -77,7 +77,7 @@ tag_map:
 ## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
 meta_generator: true
 
-# Date / Time format
+# Date / Time format 
 ## Hexo uses Moment.js to parse and display date
 ## You can customize the date format as defined in
 ## http://momentjs.com/docs/#/displaying/format/
@@ -110,8 +110,8 @@ deploy:
     branch: dev
     
 lazyload:
-    enable: true# 是否开启图片懒加载
-    onlypost: true# 是否只对文章的图片做懒加载
+    enable: fasle   #是否开启图片懒加载
+    onlypost: fasle   # 是否只对文章的图片做懒加载
     loadingImg: https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg  # 懒加载图片放自己喜欢的      
 
 browsersync:
