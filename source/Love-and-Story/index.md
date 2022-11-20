@@ -7,7 +7,8 @@ abstract: 这是一篇个人情感文章
 message:  这是一篇个人情感文章！（友情提示：姓名的全拼）
 top_img: http://js.hnlyx.top/img/064891f4c5191489caddd5b74ea9c1bf.jpg
 ---
-
+-----
+ **这是我的一篇情感文章，这里有你我的故事。而我希望这段故事可以一直写下去**
 -----
 
  <div style="text-align: center;">❤2022.10.9</div> 
