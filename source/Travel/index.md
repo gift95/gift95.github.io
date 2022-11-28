@@ -19,5 +19,6 @@ top_img: http://js.hnlyx.top/img/064891f4c5191489caddd5b74ea9c1bf.jpg
 
 
 <div>
-{% galleryGroup '银杏村' '杭州富阳区银杏村' '/Gallery/travelfuyang' https://js.hnlyx.top/img/IMG_001342.jpg %}
+{% galleryGroup '银杏村之旅' '杭州富阳区银杏村' '/Gallery/travelfuyang' https://js.hnlyx.top/img/IMG_001342.jpg %}
 </div>
+
