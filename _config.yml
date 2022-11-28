@@ -13,7 +13,7 @@ timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://www.hnlyx.top
+url: https://www.hnlyx.top
 permalink: /:year/:month/:day/:abbrlink.html
 abbrlink:
    alg: crc32   #算法： crc16(default) and crc32
