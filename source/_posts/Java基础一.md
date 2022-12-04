@@ -1,5 +1,5 @@
 ---
-title: 2022-12-3 学习心得
+title: Java基础
 abbrlink: 4b1fec93
 date: 2022-12-03 17:20:44
 tags: JAVA基础
