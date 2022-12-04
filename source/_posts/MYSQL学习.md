@@ -2,7 +2,7 @@
 title: MYSQL学习
 date: 2022-12-04 14:59:26
 abbrlink: 6ef88858
-tags:MYSQL
+tags: MYSQL
 ---
 
 
