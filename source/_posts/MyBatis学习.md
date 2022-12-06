@@ -1748,3 +1748,260 @@ foreach标签：用于遍历参数中的数组或者集合
               	foreach：遍历
 
 ~~~
+
+## 高级查询
+
+### 1、一对一查询
+
+
+
+~~~java
+association：配置关联对象（User）的映射关系
+ <association property="user" javaType="User" autoMapping="true">
+           
+  </association>
+	属性：
+		property：关联对象在主表实体类中的属性名；property="user" 表示在Order类中的引用的User类的对象		   成员变量名
+		javaType：关联对象的类型；javaType="User" 表示引用的user对象属于User类型
+~~~
+
+
+
+~~~xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+映射文件
+namespace 指定接口的类全名
+-->
+<mapper namespace="com.itheima.sh.dao.OrderMapper">
+    <!--
+        1.autoMapping="true" 表示只需要给当前表的id然后自动映射当前表的其他列值到
+        对应实体类的属性中，这属于偷懒行为，开发中我们最好都书写出来
+        2.id标签表示id的映射关系
+        3.result标签表示其他列和pojo类的属性映射关系
+        4.一对一映射关系使用子标签association来表示引用的另一个pojo类的对象
+    -->
+    <resultMap id="orderAndUserResultRelative" type="Order" autoMapping="true">
+        <!--主表主键-->
+        <id column="id" property="id"/>
+        <!--关联关系-->
+        <!--
+            1.property="user" 表示在Order类中的引用的User类的对象成员变量名
+            2.javaType="User" 表示引用的user对象属于User类型
+        -->
+        <association property="user" javaType="User" autoMapping="true">
+            <!--从表主键-->
+            <id column="id" property="id"/>
+            <!--<result column="user_name" property="userName"/>-->
+        </association>
+    </resultMap>
+
+    <!--多表关联查询：一对一-->
+    <select id="queryOrderAndUserByOrderNumber2" resultMap="orderAndUserResultRelative">
+        SELECT
+            *
+        FROM
+            tb_order tbo
+            INNER JOIN tb_user tbu ON tbo.user_id = tbu.id
+        WHERE
+            tbo.order_number = #{orderNumber}
+    </select>
+</mapper>
+~~~
+
+说明：
+
+~~~java
+1、由于queryOrderAndUserByOrderNumber2查询的结果Order对象中需要封装User信息，所以返回值不能够再使用单纯的resultType来操作；
+
+2、定义resultMap进行关联查询的配置，其中：
+	属性：
+		id：标识这个resultMap；
+		type：返回的结果类型
+    	autoMapping="true"： 表示只需要给当前表的id然后自动映射当前表的其他列值到对应实体类的属性中，这		  属于偷懒行为，开发中我们最好都书写出来
+	子元素：
+		id：主表主键映射
+		result：主表普通字段的映射
+		association:关联对象的映射配置
+		
+3、association：配置关联对象（User）的映射关系
+	属性：
+		property：关联对象在主表实体类中的属性名；property="user" 表示在Order类中的引用的User类的对象		   成员变量名
+		javaType：关联对象的类型；javaType="User" 表示引用的user对象属于User类型
+~~~
+
+##### 注意事项
+
+通过上述测试结果，我们发现User的id是错误的，不是3，正确结果是1：
+
+![image-20200607103247424](https://js.hnlyx.top/img/image-20200607103247424-164204273873711.png)
+
+因为tb_user表的主键是id，tb_order的主键也是id。查询的结果中有两列相同的id字段。在将查询结果封装到实体类的过程中就会封装错误。
+
+注意：user表查询的是id不是id1,由于SQLyog图形化界面显示的原因。可以在cmd窗口查看结果：
+
+![image-20200607104119140](https://js.hnlyx.top/img/image-20200607104119140-164204273873712.png)
+
+
+
+【解决方案】
+
+```html
+1、建议将所要查询的所有字段显示地写出来；
+2、将多表关联查询结果中，相同的字段名取不同的别名；
+```
+
+![image-20200607104753543](https://js.hnlyx.top/img/image-20200607104753543-164204273873713.png)
+
+resultMap中应该如下配置：
+
+![image-20200607105105346](https://js.hnlyx.top/img/image-20200607105105346-164204273873715.png)
+
+【正确结果】
+
+![image-20200607105210595](https://js.hnlyx.top/img/image-20200607105210595-164204273873716.png)
+
+##### 【小结】
+
+```xml
+一对一关联查询：
+1、需要在Order实体类中关联User对象；最终将数据封装到Order中；
+2、在OrderMapper.xml文件中书写关联语句并配置关系；
+3、关联关系配置：
+	    <resultMap id="orderAndUserResultRelative" type="Order" autoMapping="true">
+            <!--主表主键-->
+            <id column="oid" property="id"/>
+            <!--关联关系-->
+            <association property="user" javaType="User" autoMapping="true">
+                <!--从表主键-->
+                <id column="uid" property="id"/>
+            </association>
+        </resultMap>
+```
+
+
+
+### 2、一对多查询
+
+在**UserMapper.xml**文件中编写SQL语句完成一对多的关联查询；
+
+说明：
+
+~~~xml
+1.一对多使用collection子标签进行关联多方Order
+  <collection property="类中引用多方的成员变量名" javaType="存放多方容器的类型" ofType="多方类型" autoMapping="true">
+  </collection>
+2.属性：
+    1）property="orders" 这里的orders表示User类的成员变量orders
+    2）javaType="List" 表示User类的成员变量orders存储的Order对象使用的类型，这里是List 一般不书写
+    3) ofType="Order" 表示List集合中存储数据的类型 Order
+3.一定要记住这里给user表的id起别名是uid,order表的id起别名是oid.在resultMap标签的id子标签中的column属性值书写对应的uid和oid.
+~~~
+
+
+
+```xml
+    <!--自定义结果集-->
+    <resultMap id="oneToManyResult" type="User" autoMapping="true">
+        <!--User的主键-->
+        <id column="uid" property="id"/>
+        <!--Order关联映射-->
+        <!--
+            1.一对多使用collection子标签进行关联多方Order
+            2.属性：
+                1）property="orders" 这里的orders表示User类的成员变量orders
+                2）javaType="List" 表示User类的成员变量orders存储的Order对象使用的类型，这里是List，可以不配置
+                3) ofType="Order" 表示List集合中存储数据的类型 Order
+        -->
+
+        <collection property="orders" javaType="List" ofType="Order" autoMapping="true">
+            <!--Order的主键-->
+            <id column="oid" property="id" />
+        </collection>
+    </resultMap>
+
+    <!--根据用户ID查询用户及其订单数据-->
+    <select id="oneToManyQuery" resultMap="oneToManyResult">
+        SELECT
+            tbo.id as oid,
+            tbo.order_number,
+            tbu.id as uid,
+            tbu.user_name,
+            tbu.password,
+            tbu.name,
+            tbu.age,
+            tbu.sex
+        FROM
+            tb_user tbu
+            INNER JOIN tb_order tbo ON tbu.id = tbo.user_id
+        WHERE
+            tbu.id = #{id}
+    </select>
+```
+
+在用户的测试类中
+
+```java
+public class MybatisTest01 {
+    private static UserMapper mapper = null;
+
+    @BeforeClass
+    public static void beforeClass() throws Exception {
+        //1.构建SessionFactory
+        String resouce = "mybatis-config.xml";
+        InputStream is = Resources.getResourceAsStream(resouce);
+        SqlSessionFactory build = new SqlSessionFactoryBuilder().build(is);
+        //2.获取session
+        SqlSession sqlSession = build.openSession(true);
+        //3.获取接口对象
+        mapper = sqlSession.getMapper(UserMapper.class);
+    }  
+	//根据用户ID查询用户及其订单数据
+    @Test
+    public void oneToManyQuery() {
+        User user = mapper.oneToManyQuery(1L);
+        System.out.println("user = " + user);
+    }
+}
+```
+
+![image-20200607124912217](https://js.hnlyx.top/img/image-20200607124912217-164204273873718.png)
+
+
+
+##### 【小结】
+
+```tex
+一对多关系配置：
+1、在对象中添加映射关系；
+2、编写接口方法，编写SQL；
+3、编写resultMap处理数据库字段和实体类之间数据的封装；
+```
+
+## 高级查询小结
+
+```tex
+resutlType无法帮助我们自动的去完成映射，所以只有使用resultMap手动的进行映射
+resultMap: 
+	属性：
+        type 结果集对应的数据类型  Order
+        id 唯一标识，被引用的时候，进行指定
+        autoMapping 开启自动映射
+        extends 继承
+	子标签：
+	 id:配置id属性
+	 result:配置其他属性
+      association：配置一对一的映射
+          property 定义对象的属性名
+          javaType 属性的类型
+          autoMapping 开启自动映射
+      collection：配置一对多的映射
+          property 定义对象的属性名
+          javaType 集合的类型
+          ofType 集合中的元素类型 泛型
+  		  autoMapping 开启自动映射
+```
+
