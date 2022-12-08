@@ -50,24 +50,25 @@ tags: Vue
 
 【1】文本插值使用格式
 
-~~~html
+```html
 <标签名 v-html="vue中data的key"></标签名>
 说明：文本插值v-html通过data的key获取value显示标签的文本中
-~~~
+【2】需求：使用文本插值v-html和插值表达式{{}}获取vue中data数据
+```
 
-【2】需求：使用文本插值v-html和插值表达式**{{}}**获取vue中data数据
+
 
 【3】步骤：
 
 > 1.在素材中找到文本插值的代码
->
+> 
 > 2.使用文本插值获取vue中的数据
->
+> 
 > 3.打开浏览器查看结果
 
 【4】代码实现:
 
-~~~html
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -95,27 +96,23 @@ tags: Vue
     });
 </script>
 </html>
-~~~
-
-
+```
 
 ### 内容小结
 
 1.使用文本插值，v-html 用来获取vue中的数据，将数据放到标签的文本中，并且解析标签。
 
-~~~html
+```html
 <标签名 v-html="data中的key"></标签名>
-~~~
+```
 
 2.v-html于v-text和插值表达式的区别
 
 > **1.v-html称为文本插值，属于指令，解析html标签**
->
+> 
 > 2.插值表达式：{{data中的key}},不解析html标签
->
+> 
 > 3.v-text：属于指令，但是不解析html标签 了解
-
-
 
 ## 3.绑定属性  v-bind:属性名或者    :属性名  (重点)
 
@@ -127,26 +124,26 @@ tags: Vue
 
 【1】绑定属性格式
 
-~~~html
+```html
 完整写法
 <标签名 v-bind:属性名="data中key"></标签名>
 简写：常用 *****
 <标签名 :属性名="data中key"></标签名>
-~~~
+```
 
 【2】需求：给html标签绑定属性
 
 【3】步骤：
 
 > 1.在素材中找到绑定属性的代码
->
+> 
 > 2.给html标签绑定属性，获取vue的data值作为属性值
->
+> 
 > 3.打开浏览器查看结果
+```html
+【4】代码实现:使用文本插值v-html和插值表达式{{}}获取vue中data数据
 
-【4】代码实现:
 
-~~~html
 <!DOCTYPE html>
 <html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
 <head>
@@ -198,18 +195,18 @@ tags: Vue
     });
 </script>
 </html>
-~~~
+```
 
 ### 内容小结
 
 1.绑定属性格式：
 
-~~~html
+```html
 完整写法：
 <标签名 v-bind:属性名="data中的key"></标签名>
 简写：重点记忆
 <标签名 :属性名="data中的key"></标签名>
-~~~
+```
 
 ## 4.条件渲染v-if
 
@@ -221,27 +218,25 @@ tags: Vue
 
 【1】条件渲染v-if格式
 
-~~~html
+```html
 <标签名 v-if="条件表达式">满足条件显示的内容</标签名>
 <标签名 v-else-if="条件表达式">满足条件显示的内容</标签名>
 <标签名 v-else>上述条件都不满足执行的内容</标签名>
-~~~
-
-
+```
 
 【2】需求：判断vue中data的某个变量的值，对3取余，余数为0显示div1，余数为1显示div2，否则显示div3
 
 【3】步骤
 
 > 1.在素材中找到条件渲染的代码
->
+> 
 > 2.在html中获取vue中data的数据并判断，显示结果
->
+> 
 > 3.打开浏览器查看结果
 
 【4】代码实现
 
-~~~html
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -274,25 +269,19 @@ tags: Vue
     });
 </script>
 </html>
-~~~
-
-
+```
 
 ### 内容小结
 
 1.条件渲染：v-if
 
-~~~html
+```html
 <标签名 v-if="条件表达式">如果条件表达式为true则执行文本内容，如果为false则向下继续判断</标签名>
 <标签名 v-else-if="条件表达式">如果条件表达式为true则执行文本内容，如果为false则向下继续判断</标签名>
 ....
 <标签名 v-else>如果上述条件都为false则执行该文本</标签名>
 注意：v-else，这里不用书写判断条件
-~~~
-
-
-
-
+```
 
 ## 5.条件渲染v-show
 
@@ -305,25 +294,25 @@ tags: Vue
 
 【1】条件渲染v-show格式
 
-~~~html
+```html
 <标签名 v-show="data中的key"></标签名>
 说明：
 1.如果data中的key的值是true，则显示标签文本内容，如果是false则不显示标签文本内容
-~~~
+```
 
 【2】需求：获取Vue中data的布尔类型数据并显示
 
 【3】步骤：
 
 > 1.在素材中找到条件渲染的代码
->
+> 
 > 2.在html中获取vue中data的数据并判断，显示结果
->
+> 
 > 3.打开浏览器查看结果
 
 【4】代码实现
 
-~~~html
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -333,7 +322,7 @@ tags: Vue
 </head>
 <body>
 <div id="div">
-    
+
     <!--v-show指令-->
     <div v-show="flag">div4</div>
 
@@ -355,27 +344,21 @@ tags: Vue
     });
 </script>
 </html>
-~~~
-
-
+```
 
 ### 内容小结
 
 1.条件渲染v-show
 
-~~~html
+```html
 <标签名 v-show="data中的key"></标签名>
-~~~
+```
 
 2.v-show和v-if区别
 
 > 1.v-if：如果条件不满足，那么在页面中没有任何标签内容，直接删除
->
+> 
 > 2.v-show:如果条件不满足，是通过设置css样式的属性display，设置属性值为none来隐藏标签，标签还在页面中，只是我们看不见
-
-
-
-
 
 ## 6.列表渲染 v-for
 
@@ -383,12 +366,11 @@ tags: Vue
 
 - 掌握如何使用v-for指令
 
-
 ### 内容讲解
 
 【1】格式
 
-~~~html
+```html
 增强for循环：掌握
 <标签名 v-for="x in 数组或者对象名或者集合名">
      {{x}} 使用插值表达式获取元素
@@ -398,7 +380,7 @@ tags: Vue
 <标签名 v-for="(x,index) in 数组或者对象名">
    元素:{{x}},索引:{{index}}
 </标签名>
-~~~
+```
 
 【2】作用：
 
@@ -406,7 +388,7 @@ tags: Vue
 
 【3】代码演示
 
-~~~html
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -476,9 +458,7 @@ tags: Vue
     });
 </script>
 </html>
-~~~
-
-
+```
 
 ### 内容小结
 
@@ -486,26 +466,24 @@ tags: Vue
 
 **2.使用格式：掌握**
 
-~~~html
+```html
 类似于增强for：
 <li v-for="元素 in 容器名或者对象名">
-	{{元素}}
+    {{元素}}
 </li>
-~~~
+```
 
 说明：取出列表渲染中的元素使用插值表达式。
 
 3.使用格式：了解
 
-~~~html
+```html
 <li v-for="(元素,索引) in 容器名或者对象名">
-	{{元素}}
+    {{元素}}
 </li>
-~~~
+```
 
 说明：如果遍历的是对象，那么会将对象中的key作为索引返回。
-
-
 
 ## 7.事件绑定 v-on:事件名或者@事件名(重点)
 
@@ -513,24 +491,23 @@ tags: Vue
 
 - 掌握vue视图的事件绑定
 
-
 ### 内容讲解
 
 【1】格式
 
-~~~html
+```html
 <标签名 v-on:事件名="调用的是vue中的js函数"></标签名>
 简写：掌握
 <标签名 @事件名="调用的是vue中的js函数"></标签名>
 说明：
 1.在vue中绑定的事件名都是将原生js的事件名去掉on:click  blur...
-~~~
+```
 
 【2】需求：给视图绑定事件
 
 【3】代码实现
 
-~~~html
+```html
 <!DOCTYPE html>
 <html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
 <head>
@@ -577,23 +554,19 @@ tags: Vue
     }
 </script>
 </html>
-~~~
-
-
+```
 
 ### 内容小结
 
 1.vue的事件绑定：
 
-~~~html
+```html
  <button v-on:事件名="调用vue中的函数">xxx</button>
 简写： 经常使用
  <button @事件名="调用vue中的函数">xxx</button>
-~~~
+```
 
 2.vue中使用的事件名是将原生js中的事件名中的on给去掉
-
-
 
 ## 8.表单绑定v-model(重点) 非常重要
 
@@ -608,16 +581,16 @@ tags: Vue
 
 可以实现双向数据绑定：
 
-~~~html
+```html
 1）vue中的data数据更改，然后视图中的显示内容也会随着改变
 2）视图中的内容改变，vue中的data数据也会随着改变
-~~~
+```
 
 单向数据绑定：
 
-~~~html
+```html
 vue中的data数据更改，然后视图中的显示内容也会随着改变
-~~~
+```
 
 【2】v-model表单绑定实现双向数据绑定的原理：
 
@@ -632,7 +605,7 @@ ViewModel负责把Model的数据同步到View显示出来，还负责把View修�
 
 在vue中实现双向数据绑定使用表单绑定：v-model.
 
-~~~html
+```html
 <!DOCTYPE html>
 <html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 <head>
@@ -678,7 +651,7 @@ ViewModel负责把Model的数据同步到View显示出来，还负责把View修�
     });
 </script>
 </html>
-~~~
+```
 
 ### 内容小结
 
@@ -688,18 +661,16 @@ ViewModel负责把Model的数据同步到View显示出来，还负责把View修�
 
 ![image-20210510110020380](https://js.hnlyx.top/img/image-20210510110020380.png)
 
-~~~html
+```html
 vue中的data数据改变，视图也会随着改变 --- 单向绑定
 视图改变，vue中的data中的数据也会改变
-~~~
+```
 
 3.使用格式：
 
-~~~html
+```html
 姓名_双向绑定：<input type="text" name="username" v-model="data中的变量名">
-~~~
-
-
+```
 
 ## 9.指令小结
 
@@ -707,27 +678,27 @@ vue中的data数据改变，视图也会随着改变 --- 单向绑定
 
 注意：可以解析html标签
 
-~~~html
+```html
 <div v-html="data中的变量名"></div>
 <div v-html="username"></div>
 实现效果：
 <div>锁哥</div>
 data:{
-	username:"锁哥"
+    username:"锁哥"
 }
-~~~
+```
 
 2.绑定属性：
 
-~~~html
+```html
 <input v-bind:属性名="data中的变量名"/> 可以绑定任意属性
 简写：使用较多
 <input :属性名="data中的变量名" />
-~~~
+```
 
 3.条件渲染：
 
-~~~html
+```html
 <li v-if="条件表达式">文本1</li>
 <li v-else-if="条件表达式">文本2</li>
 ....
@@ -736,27 +707,23 @@ data:{
 
 <li v-show="条件表达式">文本</li>
 如果条件表达式为true则显示文本，为false则给标签添加css样式即display:none 隐藏
-~~~
-
-
+```
 
 4.列表渲染：
 
-~~~html
+```html
 <li v-for="元素 in 容器或者对象名">
-	{{元素}}
+    {{元素}}
 </li>
 
 <li v-for="(元素,索引) in 数组名或者对象名">
-	{{元素}}
+    {{元素}}
 </li>
-~~~
-
-
+```
 
 5.事件绑定：
 
-~~~html
+```html
 <button v-on:事件名="调用vue中的函数">
     单击
 </button>
@@ -764,11 +731,10 @@ data:{
 <button @事件名="调用vue中的函数">
     单击
 </button>
-~~~
+```
 
 **6.表单绑定 ：实现双向数据绑定。视图改变，data数据改变。data数据改变，视图也改变。**
 
-~~~html
+```html
 <input v-model="data中的变量名"/>
-~~~
-
+```
