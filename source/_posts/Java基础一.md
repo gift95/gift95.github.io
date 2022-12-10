@@ -1,8 +1,10 @@
----
 title: Java基础
 abbrlink: 4b1fec93
-date: 2022-12-03 17:20:44
-tags: JAVA基础
+tags:
+  - JAVA基础
+categories: []
+author: yxliu
+date: 2022-12-03 17:20:00
 ---
 
 ##  JAVA基础运算符
