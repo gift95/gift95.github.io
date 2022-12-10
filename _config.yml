@@ -119,6 +119,7 @@ browsersync:
   ghostMode:
     scroll: true
   instanceName: "uniqueString"
+  https: true
   
 encrypt:
     enable: false
