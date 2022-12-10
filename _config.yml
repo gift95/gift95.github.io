@@ -144,3 +144,7 @@ live2d:
     react:
       opacityDefault: 1
       opacityOnHover: 1
+admin:
+  username: liu
+  password_hash: $2a$10$zn8k/8KnQkUJA3H9H3dbce.YTnnsT1sVGLtbfM0GGHpJFfwHv9.Xy
+  secret: 19951102
