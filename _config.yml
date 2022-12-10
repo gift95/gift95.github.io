@@ -106,7 +106,7 @@ theme: butterfly
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
     type: git
-    repo: https://github.com/gift95/gift95.github.io.git
+    repo: git@github.com:gift95/gift95.github.io.git
     branch: dev
     
 lazyload:
