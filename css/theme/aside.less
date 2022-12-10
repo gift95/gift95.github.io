@@ -1,0 +1,26 @@
+/*
+ * @description: aside相关
+ * @author: 小康
+ * @url: https://xiaokang.me
+ * @Date: 2021-01-03 11:03:54
+ * @LastEditTime: 2021-01-03 19:12:34
+ * @LastEditors: 小康
+ */
+
+// 头像悬停出现烟花
+.card-info-avatar when (@avatarHover=true) {
+  &:hover {
+    background: url(https://ae01.alicdn.com/kf/H3342af90d24b4d62b9bbfec9688ccc25M.gif);
+  }
+}
+
+#aside-content {
+  .card-widget {
+    background: var(--light_bg_color);
+  }
+}
+[data-theme='dark'] #aside-content {
+  .card-widget {
+    background: var(--dark_bg_color);
+  }
+}

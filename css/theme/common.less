@@ -1,0 +1,116 @@
+/*
+ * @description: 主题通用样式
+ * @author: 小康
+ * @url: https://xiaokang.me
+ * @Date: 2021-01-03 10:54:52
+ * @LastEditTime: 2021-01-03 16:05:40
+ * @LastEditors: 小康
+ */
+
+//  鼠标样式
+body {
+  cursor: url(@pointer_default), default;
+}
+a,
+img,
+button {
+  cursor: url(@pointer_pointer), default;
+}
+
+// 视频宽度100%
+video {
+  width: 100%;
+}
+// 音乐框取消点击边框
+audio {
+  outline: none;
+}
+// 全局背景
+#web_bg {
+  background: linear-gradient(
+    90deg,
+    rgba(247, 149, 51, 0.1) 0,
+    rgba(243, 112, 85, 0.1) 15%,
+    rgba(239, 78, 123, 0.1) 30%,
+    rgba(161, 102, 171, 0.1) 44%,
+    rgba(80, 115, 184, 0.1) 58%,
+    rgba(16, 152, 173, 0.1) 72%,
+    rgba(7, 179, 155, 0.1) 86%,
+    rgba(109, 186, 130, 0.1) 100%
+  );
+}
+
+// 滚动条
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(73, 177, 245, 0.2);
+  border-radius: 2em;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #49b1f5;
+  background-image: -webkit-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.4) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0.4) 75%,
+    transparent 75%,
+    transparent
+  );
+  border-radius: 2em;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+::-moz-selection {
+  color: #fff;
+  background-color: #49b1f5;
+}
+
+// 富文本按钮悬浮下划线
+#article-container {
+  .btns {
+    a {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+  .fancybox {
+    img {
+      margin: 0;
+    }
+  }
+}
+// aplayer
+.aplayer {
+  .aplayer-lrc {
+    p {
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 16px !important;
+      &.aplayer-lrc-current {
+        font-size: 15px;
+        color: #49b1f5;
+      }
+    }
+  }
+  &.aplayer-fixed {
+    &.aplayer-narrow {
+      .aplayer-body {
+        left: -66px !important;
+        &:hover {
+          left: 0px !important;
+        }
+      }
+    }
+  }
+}

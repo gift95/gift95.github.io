@@ -1,0 +1,248 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Oracle sql语句使用 | Yxliu's Blog</title><meta name="author" content="Yxliu"><meta name="copyright" content="Yxliu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="日常使用的Oracle 语句"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://www.hnlyx.top/2022/07/28/b18eaa09"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Oracle sql语句使用',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2022-07-28 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/tags.css"><link rel="stylesheet" href="/css/index.min.css"><link rel="stylesheet" href="/css/heartbeat.min.css"><script  src="/js/jquery-3.6.0.min.js"></script><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-filter-gitcalendar/lib/gitcalendar.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Yxliu's Blog" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/Love-and-Story/"><i class="fa-fw fa-solid fa-heart-circle-bolt"></i><span> 我们的故事</span></a></div><div class="menus_item"><a class="site-page" href="/Travel/"><i class="fa-fw fas fa-map-marked"></i><span> 旅行日记</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa  fa-binoculars"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/topic.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Yxliu's Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/Love-and-Story/"><i class="fa-fw fa-solid fa-heart-circle-bolt"></i><span> 我们的故事</span></a></div><div class="menus_item"><a class="site-page" href="/Travel/"><i class="fa-fw fas fa-map-marked"></i><span> 旅行日记</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa  fa-binoculars"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Oracle sql语句使用</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-07-27T16:00:00.000Z" title="发表于 2022-07-28 00:00:00">2022-07-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-07-27T16:00:00.000Z" title="更新于 2022-07-28 00:00:00">2022-07-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>9分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>ORACLE数据库实践文档</p>
+<p>1.登录sql编辑器</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sqlplus <span class="operator">/</span> <span class="keyword">as</span> sysdba(一般使用)</span><br><span class="line">conn <span class="operator">/</span><span class="keyword">as</span> sysdba</span><br></pre></td></tr></table></figure>
+
+<p>2.查询当前实例</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> name <span class="keyword">from</span> v$database;</span><br><span class="line"><span class="keyword">select</span> instance_name <span class="keyword">from</span> v$instance;</span><br><span class="line"><span class="comment">--查询所有的实例</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">parameter</span> instance;</span><br></pre></td></tr></table></figure>
+<p>3.切换实例</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export ORACLE_SID=ILSDB</span><br></pre></td></tr></table></figure>
+<p>4.查询所有表空间</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select t1.name,t2.name from v$tablespace t1,v$datafile t2 where t1.ts# = t2.ts#;（带路径）</span><br><span class="line">select * from v$tablespace;</span><br><span class="line">select tablespace_name from dba_tablespaces;</span><br></pre></td></tr></table></figure>
+<p>5.查询某个用户的表空间</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">select default_tablespace from dba_users where username=&#x27;CFS&#x27;;</span><br><span class="line">--查询表空间下有多少用户（tablespace_name表空间一定大写）</span><br><span class="line"></span><br><span class="line">select distinct s.owner from dba_segments s where s.tablespace_name=&#x27;CFS_UAT_DATABASE&#x27;;</span><br><span class="line">--查询所有用户</span><br><span class="line">select * from all_users;</span><br><span class="line">--查询所有表</span><br><span class="line">select table_name,tablespace_name,status from user_tables;</span><br><span class="line">--查询用户下的所有表</span><br><span class="line">select owner,tablespace_name,table_name from dba_tables where owner=&#x27;CFS&#x27;;</span><br></pre></td></tr></table></figure>
+<p>6.查询数据泵位置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM dba_directories;（DATA_PUMP_DIR后面的路径为数据泵路径）</span><br><span class="line">--查询用户连接人</span><br><span class="line">select sid,serial# from v$session where username=&#x27;CFS&#x27;;</span><br><span class="line">select saddr,sid,serial#,paddr,username,status,OSUSER from v$session where username =&#x27;CFS&#x27;;</span><br><span class="line">--断开连接人</span><br><span class="line">alter system kill session &#x27;479,19&#x27;;</span><br><span class="line">--删除用户</span><br><span class="line">drop user CFS cascade;</span><br></pre></td></tr></table></figure>
+
+<p>创建表空间（DBRP2_DATA_SPACE：表空间名，’&#x2F;oradata&#x2F;ILSRULEDB&#x2F;DBRP2_DATA_SPACE.dbf’：表空间文件路径，）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">create tablespace DBRP2_DATA_SPACE logging datafile &#x27;/oradata/ILSRULEDB/DBRP2_DATA_SPACE.dbf&#x27; size 1024m autoextend on next 1024m maxsize 20480m;</span><br><span class="line"></span><br><span class="line">--创建用户并赋予用户表空间（ils:用户名，oracle：用户密码，CFS_DATA_SPACE：表空间）</span><br><span class="line">create user ils identified by oracle default tablespace CFS_DATA_SPACE temporary tablespace TEMP;</span><br><span class="line">--给用户赋予权限（5个权限够用，但是生产上不会给dba权限会影响导入和导出语句）</span><br><span class="line">grant connect to ils;</span><br><span class="line">grant dba to ils;</span><br><span class="line">grant exp_full_database to ils;</span><br><span class="line">grant imp_full_database to ils;</span><br><span class="line">grant resource to ils;</span><br><span class="line">--查询用户角色权限（此语句需要在plsql上执行）</span><br><span class="line">select * from user_role_privs;</span><br><span class="line">--当前会话有效的系统权限</span><br><span class="line">select * from session_privs;</span><br><span class="line">--权限收回</span><br><span class="line">revoke dba from ils;</span><br></pre></td></tr></table></figure>
+<p>导出数据库(cfs:用户名，oracle:用户密码，ILSDB：实例，cfs_HGCEJG.dmp：导出文件名称)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">expdp cfs/oracle@ILSDB directory=DATA_PUMP_DIR dumpfile=cfs_HGCEJG.dmp</span><br><span class="line">--@10.191.107.100/crmpbatchdb 是解决ora-12154 ude-12154 的办法</span><br><span class="line">expdp crmpRm/crmpRm@10.191.107.100/crmpbatchdb directory=DATA_PUMP_DIR dumpfile=DISA_20200226.dmp </span><br></pre></td></tr></table></figure>
+<p>导入数据库cfs:用户名，oracle:用户密码，ILSDB：实例，cfs_APP_NEW.dmp：导出文件名称,a:原用户名，b:现在用户名，c和e：原表空间，d和f：现表空间名，TABLE_EXISTS_ACTION&#x3D;REPLACE：数据可以重复执行)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">impdp cfs/oracle@ILSDB directory=DATA_PUMP_DIR dumpfile=cfs_APP_NEW.dmp remap_schema=a:b remap_tablespace=c:d,e:f TABLE_EXISTS_ACTION=REPLACE</span><br></pre></td></tr></table></figure>
+<p>银行生产用户权限（connect，unlimited tablespace，role_app_priv）导致导入导出语句：schemas为用户名称</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">impdp credit/oracle	 directory=TMDUMP dumpfile=credit-20200529-%U.dmp table_exists_action=replace  remap_tablespace=TBS_CREDIT:TBS_CREDIT remap_schema=credit:credit;</span><br></pre></td></tr></table></figure>
+<p>导完之后，用sqlplus &#x2F; as sysdba登录，执行exec DBMS_STATS.GATHER_SCHEMA_STATS(OWNNAME&#x3D;&gt;’CREDIT’,degree&#x3D;&gt;8);</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">--导出：expdp \&quot; / as sysdba \&quot;  directory=DATA_PUMP_DIR dumpfile=cfs_uat.dmp schemas=cfs logfile=fs_uat.log</span><br><span class="line">--导入：impdp  \&quot; / as sysdba \&quot; directory=DATA_PUMP_DIR dumpfile=cfs_uat.dmp schemas=cfs cluster=n remap_schema=cfs:ils remap_tablespace=CFS_UAT_DATABASE:ILSDATA,USERS:ILSDATA</span><br></pre></td></tr></table></figure>
+
+<p>oracle数据库停止服务&#x2F;启动服务命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">su - oracle</span><br><span class="line">lsnrctl status -- 查看监听状态</span><br><span class="line">lsnrctl stop -- 停止监听</span><br><span class="line">sqlplus / as sysdba</span><br><span class="line">shutdown immediate; --停止数据库</span><br><span class="line">exit;</span><br><span class="line">lsnrctl start --启动监听</span><br><span class="line">sqlplus / as sysdba</span><br><span class="line">startup; --启动数据库</span><br></pre></td></tr></table></figure>
+<p>查询数据库编码集</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">select * from nls_database_parameters;</span><br><span class="line">--更改游标数（open_cursors后面的数为游标数）</span><br><span class="line">ALTER SYSTEM  SET open_cursors=300 SCOPE=BOTH;</span><br><span class="line">--查询当前游标数</span><br><span class="line">show PARAMETER open_cursors;</span><br><span class="line">--查询某个sid下的使用游标数</span><br><span class="line">SELECT sid, COUNT(*) FROM v$open_cursor WHERE USER_NAME=&#x27;CFS&#x27; GROUP BY sid ORDER BY count(*) DESC ;</span><br></pre></td></tr></table></figure>
+<p>26.查询锁表</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">select object_name,machine,s.sid,s.serial# from gv$locked_object l,dba_objects o,gv$session s where l.object_id = o.object_id and l.session_id = s.sid ;</span><br><span class="line">--删除锁表记录，即可解锁</span><br><span class="line">alter system kill session &#x27;sid,serial#&#x27;;</span><br><span class="line">--给用户上锁</span><br><span class="line">alter user CFS account lock;</span><br><span class="line">--给用户解锁</span><br><span class="line">alter user CFS account unlock;</span><br><span class="line">--查询用户的状态</span><br><span class="line">select username,account_status from dba_users where username =&#x27;CFS&#x27;;</span><br><span class="line">--查询连接用户的id并且Kill掉</span><br><span class="line">select &#x27;altere system kill session &#x27;&#x27;&#x27;||sid || &#x27;,&#x27; || serial# || &#x27;&#x27;&#x27;&#x27; from V$SESSION WHERE username =&#x27;CFS&#x27;;</span><br></pre></td></tr></table></figure>
+<p>查询用户被锁ORA-28000问题解决</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">--查询用户状态</span><br><span class="line">select username,account_status from dba_users where username =&#x27;CN_2310&#x27;;</span><br><span class="line">--给用户解锁</span><br><span class="line">alter user CN_2310 account unlock;</span><br><span class="line">--查询用户限制登录次数</span><br><span class="line">select * from dba_profiles where RESOURCE_NAME=&#x27;FAILED_LOGIN_ATTEMPTS&#x27;;</span><br><span class="line">--修改用户无论输入多少次也都不会被上锁</span><br><span class="line">alter profile default limit failed_login_attempts unlimited;</span><br></pre></td></tr></table></figure>
+<p>解决用户密码过期ORA-28001；oracle用户密码180会过期</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">--查看用户的profile，一般为default</span><br><span class="line">select username,PROFILE from dba_users;</span><br><span class="line">--查看用户的密码的有效期</span><br><span class="line">select * from dba_profiles where profile=&#x27;DEFAULT&#x27; and resource_name=&#x27;PASSWORD_LIFE_TIME&#x27;;</span><br><span class="line">--修改为无限期</span><br><span class="line">alter PROFILE DEFAULT LIMIT PASSWORD_LIFE_TIME UNLIMITED;</span><br><span class="line">--再次修改密码  abrp2为密码</span><br><span class="line">alter user ABRP2 IDENTIFIFIED by &quot;abrp2&quot;;</span><br></pre></td></tr></table></figure>
+<p>数据库3种闪回机制这里只提供（表的闪回）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">--给表闪回的权限</span><br><span class="line">alter table AWE_DO_LIBRARY enable ROW movement;</span><br><span class="line">--闪回语句</span><br><span class="line">flashback table AWE_DO_LIBRARY to timestamp to_timestamp(&#x27;2019.09.17 14:00:00&#x27;,&#x27;yyyy.mm.dd hh24:mi:ss&#x27;);</span><br><span class="line">--没收闪回权限</span><br><span class="line">alter table AWE_DO_LIBRARY disable ROW movement;</span><br></pre></td></tr></table></figure>
+<p>如何查看系统被锁的事物时间</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from v$locked_object ;</span><br></pre></td></tr></table></figure>
+<p>如何在Oracle服务器上通过SQLPLUS查看本机IP地址 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select sys_context(&#x27;userenv&#x27;,&#x27;ip_address&#x27;) from dual</span><br></pre></td></tr></table></figure>
+<p>如何将表移动表空间（待验证）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE TABLE_NAME MOVE TABLESPACE_NAME</span><br></pre></td></tr></table></figure>
+<p>如何将索引移动表空间（待验证）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER INDEX INDEX_NAME REBUILD TABLESPACE TABLESPACE_NAME</span><br></pre></td></tr></table></figure>
+<p>修改用户密码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter user crmpRm identified by crmpRm;</span><br></pre></td></tr></table></figure>
+<p>查询这张表或SQL语句被哪台机器(人)操作过</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select * from v$sqlarea a where upper(a.SQL_TEXT) like &#x27;%BUSINESS_APLLY%&#x27;;</span><br><span class="line">select * from v$sqltext a, v$sqlarea b where a.SQL_ID = b.SQL_ID and b.SQL_ID in (&#x27;dg5m09zfsa47w&#x27;, &#x27;9ykgw8t8hzztu&#x27;) order by b.LAST_LOAD_TIME;</span><br><span class="line">select l.OSUSER,l.MACHINE from sys.v_$session l, sys.v_$sql s where s.SQL_ID = &#x27;dg5m09zfsa47w&#x27; and l.USERNAME is not null;</span><br></pre></td></tr></table></figure>
+<p>41.改变服务器编码 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">shutdown immediate;</span><br><span class="line">startup mount;</span><br><span class="line">alter system enable restricted session;</span><br><span class="line">alter system set job_queue_processes=0;</span><br><span class="line">alter system set aq_tm_processes=0;</span><br><span class="line">alter database open;</span><br><span class="line">alter database character set internal_use ZHS16GBK;</span><br><span class="line">shutdown immediate;</span><br><span class="line">startup; </span><br></pre></td></tr></table></figure>
+<p>42.查看执行中和执行过的sql<br>(1)查询Oracle正在执行的sql语句及执行该语句的用户</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">SELECT b.sid oracleID,</span><br><span class="line">    b.username 登录Oracle用户名,</span><br><span class="line">    b.serial#,</span><br><span class="line">    spid 操作系统ID,</span><br><span class="line">    paddr,</span><br><span class="line">    sql_text 正在执行的SQL,</span><br><span class="line">    b.machine 计算机名</span><br><span class="line">FROM v$process a, v$session b, v$sqlarea c</span><br><span class="line">WHERE a.addr = b.paddr AND b.sql_hash_value = c.hash_value</span><br></pre></td></tr></table></figure>
+<p>(2)其它正在执行的sql语句代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">select a.username, a.sid,b.SQL_TEXT, b.SQL_FULLTEXT</span><br><span class="line"> from v$session a, v$sqlarea b </span><br><span class="line">where a.sql_address = b.address </span><br><span class="line">---执行过的</span><br><span class="line">select b.SQL_TEXT,b.FIRST_LOAD_TIME,b.SQL_FULLTEXT</span><br><span class="line"> from v$sqlarea b</span><br><span class="line">where b.FIRST_LOAD_TIME between &#x27;2020-05-21/09:24:47&#x27; and</span><br><span class="line">    &#x27;2020-05-21/22:01:00&#x27; order by b.FIRST_LOAD_TIME</span><br></pre></td></tr></table></figure>
+<p>（此方法好处可以查看某一时间段执行过的sql，并且 SQL_FULLTEXT 包含了完整的 sql 语句）<br>(3)其他</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">select OSUSER,PROGRAM,USERNAME,SCHEMANAME,B.Cpu_Time,STATUS,B.SQL_TEXT </span><br><span class="line">from V$SESSION A LEFT JOIN V$SQL B ON A.SQL_ADDRESS=B.ADDRESS AND A.SQL_HASH_VALUE=B.HASH_VALUE order by b.cpu_time desc</span><br><span class="line"> </span><br><span class="line">select address, sql_text, piece </span><br><span class="line"> from v$session, v$sqltext </span><br><span class="line">where address = sql_address </span><br><span class="line"> -- and machine = &lt; you machine name &gt; </span><br><span class="line">order by address, piece</span><br><span class="line">--查看正在执行sql的发起者的发放程序</span><br><span class="line">SELECT OSUSER 电脑登录身份,</span><br><span class="line">    PROGRAM 发起请求的程序,</span><br><span class="line">    USERNAME 登录系统的用户名,</span><br><span class="line">    SCHEMANAME,</span><br><span class="line">    B.Cpu_Time 花费cpu的时间,</span><br><span class="line">    STATUS,</span><br><span class="line">    B.SQL_TEXT 执行的sql</span><br><span class="line">FROM V$SESSION A</span><br><span class="line">LEFT JOIN V$SQL B ON A.SQL_ADDRESS = B.ADDRESS</span><br><span class="line">          AND A.SQL_HASH_VALUE = B.HASH_VALUE</span><br><span class="line">ORDER BY b.cpu_time DESC</span><br><span class="line">--查出oracle当前的被锁对象</span><br><span class="line">SELECT l.session_id sid,</span><br><span class="line">    s.serial#,</span><br><span class="line">    l.locked_mode 锁模式,</span><br><span class="line">    l.oracle_username 登录用户,</span><br><span class="line">    l.os_user_name 登录机器用户名,</span><br><span class="line">    s.machine 机器名,</span><br><span class="line">    s.terminal 终端用户名,</span><br><span class="line">    o.object_name 被锁对象名,</span><br><span class="line">    s.logon_time 登录数据库时间</span><br><span class="line">FROM v$locked_object l, all_objects o, v$session s</span><br><span class="line">WHERE l.object_id = o.object_id</span><br><span class="line">  AND l.session_id = s.sid</span><br><span class="line">ORDER BY sid, s.serial#;</span><br><span class="line">--kill掉当前的锁对象可以为</span><br><span class="line">alter system kill session &#x27;sid， s.serial#&#x27;;</span><br><span class="line">--查找前十条性能差的sql.</span><br><span class="line">SELECT * FROM (select PARSING_USER_ID,EXECUTIONS,SORTS, </span><br><span class="line">COMMAND_TYPE,DISK_READS,sql_text FROM v$sqlarea </span><br><span class="line">order BY disk_reads DESC )where ROWNUM&lt;10 ;</span><br><span class="line">--查看占io较大的正在运行的session</span><br><span class="line">SELECT se.sid,se.serial#,pr.SPID,se.username,se.status, </span><br><span class="line">se.terminal,se.program,se.MODULE,、se.sql_address,st.event,st. </span><br><span class="line">p1text,si.physical_reads, </span><br><span class="line">si.block_changes FROM v$session se,v$session_wait st, </span><br><span class="line">v$sess_io si,v$process pr WHERE st.sid=se.sid AND st. </span><br><span class="line">sid=si.sid AND se.PADDR=pr.ADDR AND se.sid&gt;6 AND st. </span><br><span class="line">wait_time=0 AND st.event NOT LIKE &#x27;%SQL%&#x27; ORDER BY physical_reads DESC</span><br></pre></td></tr></table></figure>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://www.hnlyx.top">Yxliu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.hnlyx.top/2022/07/28/b18eaa09.html">https://www.hnlyx.top/2022/07/28/b18eaa09.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.hnlyx.top" target="_blank">Yxliu's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Sql/">Sql</a></div><div class="post_share"><div class="social-share" data-image="https://api.ixiaowai.cn/gqapi/gqapi.php" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2022/07/29/678f4d99.html"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://api.ixiaowai.cn/gqapi/gqapi.php" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Oracle——分页查询出现重复数据问题的分析与解决</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yxliu</div><div class="author-info__description">一个半路出家的程序员</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/gift95"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:851046264@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog<br/>记载和分享在日常的点点滴滴！</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/12/07/91c8a1f4.html" title="Vue简单学习">Vue简单学习</a><time datetime="2022-12-07T11:58:27.000Z" title="发表于 2022-12-07 19:58:27">2022-12-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/12/06/a8587907.html" title="MyBatis学习">MyBatis学习</a><time datetime="2022-12-06T10:52:12.000Z" title="发表于 2022-12-06 18:52:12">2022-12-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/12/05/f8d5cfbe.html" title="shell学习">shell学习</a><time datetime="2022-12-05T02:46:38.000Z" title="发表于 2022-12-05 10:46:38">2022-12-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/12/04/6ef88858.html" title="MYSQL学习">MYSQL学习</a><time datetime="2022-12-04T06:59:26.000Z" title="发表于 2022-12-04 14:59:26">2022-12-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/12/03/4b1fec93.html" title="Java基础">Java基础</a><time datetime="2022-12-03T09:20:44.000Z" title="发表于 2022-12-03 17:20:44">2022-12-03</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;<font color="#58abf3">2022 </font> <i  id="heartbeat" class="fa fas fa-heartbeat"></i>  <font color="#58abf3">Yxliu </font></div><div class="framework-info"><span>框架 </span><a target="_blank" href="https://hexo.io" style="color:#C71585;font-weight: bold;"> Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" href="https://github.com/jerryc127/hexo-theme-butterfly" style="color:#C71585;font-weight: bold;">Butterfly</a></div><div class="framework-info1"> </div><div class="footer_custom_text"><b>Life is a gift, So is Life ,So are you.</b><p><a target="_blank" href="https://hexo.io/"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/icon/Hexo.svg" title="博客框架为Hexo"></a>&nbsp;<a target="_blank" href="https://butterfly.js.org/"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/icon/Theme.svg" title="主题采用butterfly"></a>&nbsp;<a target="_blank" href="https://www.qiniu.com/"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/icon/qiniu.svg" title="本站使用七牛云为静态资源提供CDN加速"></a> &nbsp;<a target="_blank" href="https://github.com/"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/icon/Github.svg" title="本站项目由Gtihub托管"></a>&nbsp;<a target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/icon/Copyright.svg" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"></a></p> <div style="width:600px;margin:0 auto; padding:0px 0;"><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=41138102000235" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/icp.png" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin:0px 0px 0px 5px; color:#939393;">豫公网安备 41138102000235号  豫ICP备20013183号</p></a></div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container').forEach(node => {
+            if (node.hasAttribute('display')) {
+              btf.wrap(node, 'div', { class: 'mathjax-overflow' })
+            } else {
+              btf.wrap(node, 'span', { class: 'mathjax-overflow' })
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script></div><script async src="/js/hideMobileSidebar.js"></script><script async src="/js/sakura.js"></script><script async src="/js/footer.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script></div><!-- hexo injector body_end start --><script data-pjax src="https://cdn.cbd.int/hexo-filter-gitcalendar/lib/gitcalendar.js"></script><script data-pjax>
+  function gitcalendar_injector_config(){
+      var parent_div_git = document.getElementById('recent-posts');
+      var item_html = '<div class="recent-post-item" style="width:100%;height:auto;padding:10px;"><style>#git_container{min-height: 280px}@media screen and (max-width:650px) {#git_container{min-height: 0px}}</style><div id="git_loading" style="width:10%;height:100%;margin:0 auto;display: block;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50" xml:space="preserve"><path fill="#d0d0d0" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" transform="rotate(275.098 25 25)"><animatetransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animatetransform></path></svg><style>#git_container{display: none;}</style></div><div id="git_container"></div></div>';
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+      console.log('已挂载gitcalendar')
+      }
+
+    if( document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+        gitcalendar_injector_config()
+        GitCalendarInit("https://gitcalendar.zfe.space/api/api?gift95",['#ebedf0', '#f0fff4', '#dcffe4', '#bef5cb', '#85e89d', '#34d058', '#28a745', '#22863a', '#176f2c', '#165c26', '#144620'],'gift95')
+    }
+  </script><!-- hexo injector body_end end --></body></html>

@@ -1,0 +1,55 @@
+/*
+ * @description: 页脚样式
+ * @author: 小康
+ * @url: https://xiaokang.me
+ * @Date: 2021-01-03 11:39:27
+ * @LastEditTime: 2021-01-03 19:24:26
+ * @LastEditors: 小康
+ */
+#footer when (not(@footerGradient)) {
+  background: rgba(255, 255, 255, 0.15);
+  color: #000;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  backdrop-filter: saturate(100%) blur(5px);
+  &::before {
+    background: rgba(255, 255, 255, 0.15);
+  }
+  #footer-wrap {
+    color: #333;
+  }
+  #footer-wrap a {
+    color: #333;
+  }
+}
+
+#footer when (@footerGradient) {
+  background: linear-gradient(-45deg, #ee7752, #ce3e75, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  -webkit-animation: Gradient 10s ease infinite;
+  -moz-animation: Gradient 10s ease infinite;
+  animation: Gradient 10s ease infinite;
+  -o-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  &::before {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  @keyframes Gradient {
+    0% {
+      background-position: 0 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0 50%;
+    }
+  }
+}

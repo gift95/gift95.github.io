@@ -1,0 +1,57 @@
+/*
+ * @description: 页面相关美化
+ * @author: 小康
+ * @url: https://xiaokang.me
+ * @Date: 2021-01-03 10:57:16
+ * @LastEditTime: 2021-04-06 21:17:08
+ * @LastEditors: 小康
+ */
+
+#recent-posts {
+  > .recent-post-item {
+    background: var(--light_page_color);
+  }
+}
+.layout_post {
+  > #page {
+    background: var(--light_page_color);
+  }
+}
+.layout {
+  > div {
+    &:first-child:not(.recent-posts) {
+      background: var(--light_page_color);
+    }
+  }
+}
+.layout_post,
+.read-mode .layout_post {
+  > #post {
+    background: var(--light_page_color);
+  }
+}
+
+// 夜间模式
+[data-theme='dark'] #recent-posts {
+  > .recent-post-item {
+    background: var(--dark_page_color);
+  }
+}
+[data-theme='dark'] .layout_post {
+  > #page {
+    background: var(--dark_page_color);
+  }
+}
+[data-theme='dark'] .layout {
+  > div {
+    &:first-child:not(.recent-posts) {
+      background: var(--dark_page_color);
+    }
+  }
+}
+[data-theme='dark'] .layout_post,
+[data-theme='dark'] .read-mode .layout_post {
+  > #post {
+    background: var(--dark_page_color);
+  }
+}
