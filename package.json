@@ -18,7 +18,7 @@
     "constantinople": "^4.0.1",
     "core-js": "^3.26.1",
     "gitalk": "^1.8.0",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-clean-css": "^4.3.0",
     "gulp-rename": "^2.0.0",
     "hexo": "^6.2.0",
