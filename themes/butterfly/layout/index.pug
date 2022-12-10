@@ -3,5 +3,7 @@ extends includes/layout.pug
 block content
   include ./includes/mixins/post-ui.pug
   #recent-posts.recent-posts
+    .recent-post-item(style='width:100%;height:auto;padding:10px;')
+       #github_container
     +postUI
     include includes/pagination.pug

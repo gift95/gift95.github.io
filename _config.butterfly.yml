@@ -860,7 +860,7 @@ inject:
     - <script async src="/js/hideMobileSidebar.js"></script>
     - <script async src="/js/sakura.js"></script>
     - <script async src="/js/footer.js"></script>
-    
+    - <script  data-pjax src="/js/githubcalendar.js"></script>
 
 # CDN
 # Don't modify the following settings unless you know how they work
