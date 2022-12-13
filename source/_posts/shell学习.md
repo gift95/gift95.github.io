@@ -9,12 +9,6 @@ tags: shell LINUX
 
 ### shell 变量
 
-
-
-
-
- 
-
 | 特殊变量    |                                                                                                                                  |
 | ------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | 特殊变量    | 作用说明                                                                                                                             |
@@ -25,9 +19,6 @@ tags: shell LINUX
 | $$      | 获取当前shell的进程号                                                                                                                    |
 | $*      | 获取当前shell的所有传参的参数，不加引号同$@;如果给$*加上双引号，例如: “$*”,则表示将所有的参数视为单个字符串，相当于“12$3”。                                                        |
 | $@      | 获取当前shell的所有传参的参数，不加引号同$*;如果给$@加上双引号，例如: “$@”,则表示将所有参数视为不同的独立字符串，相当于“$1” “$2” “$3” “……”，这是将参数传递给其他程序的最佳方式，因为他会保留所有内嵌在每个参数里的任何空白。 |
-
-
-
 
 ### 读取文件
 
@@ -49,13 +40,12 @@ done < $config
 
 while循环结构如下：
 
+```shell
 while 条件
-
 do
-
 ...
-
 done
+```
 
 应该前面还有个do的。这是固定结构，满足条件就会一直循环下去。
 
@@ -67,9 +57,9 @@ man read，说明中可以看到，如果读成功的话，read返回读取的�
 
 ## linux shell 字符串操作详解 （长度，读取，替换，截取，连接，对比，删除，位置 ）
 
-![](http://js.hnlyx.top/img/202212081114174.jpg)
+![](https://js.hnlyx.top/img/202212081114174.jpg)
 
-![](http://js.hnlyx.top/img/202212081114783.jpg)
+![](https://js.hnlyx.top/img/202212081114783.jpg)
 
 ### 1.Linux shell 截取字符变量的前8位
 
@@ -159,26 +149,22 @@ ls -al | cut -d “.” -f2
 
 **二、字符串操作（长度，读取，替换）**
 
+
+
 > 表达式 含义
 > 
 > | ${#string}                       | $string的长度                                                    |
 > | -------------------------------- | ------------------------------------------------------------- |
-> |                                  |                                                               |
 > | ${string:position}               | 在$string中, 从位置$position开始提取子串                                 |
 > | ${string:position:length}        | 在$string中, 从位置$position开始提取长度为$length的子串                      |
-> |                                  |                                                               |
 > | ${string#substring}              | 从变量$string的开头, 删除最短匹配$substring的子串                            |
 > | ${string##substring}             | 从变量$string的开头, 删除最长匹配$substring的子串                            |
 > | ${string%substring}              | 从变量$string的结尾, 删除最短匹配$substring的子串                            |
 > | ${string%%substring}             | 从变量$string的结尾, 删除最长匹配$substring的子串                            |
-> |                                  |                                                               |
 > | ${string/substring/replacement}  | 使用$replacement, 来代替第一个匹配的$substring                           |
 > | ${string//substring/replacement} | 使用$replacement, 代替*所有*匹配的$substring                           |
 > | ${string/#substring/replacement} | 如果$string的*前缀*匹配$substring, 那么就用$replacement来代替匹配到的$substring |
 > | ${string/%substring/replacement} | 如果$string的*后缀*匹配$substring, 那么就用$replacement来代替匹配到的$substring |
-> |                                  |                                                               |
-
-**说明："*** $substring”可以是一个*正则表达式*.
 
  实例：
 
@@ -295,86 +281,84 @@ ls -al | cut -d “.” -f2
 **6，截取不匹配的内容**
 
 ```shell
-1. echo ${string#a*3}     //42341  从$string左边开始，去掉最短匹配子串    
-2. echo ${string#c*3}     //abc12342341  这样什么也没有匹配到    
-3. echo ${string#*c1*3}   //42341  从$string左边开始，去掉最短匹配子串    
-4. echo ${string##a*3}    //41     从$string左边开始，去掉最长匹配子串    
-5. echo ${string%3*1}     //abc12342  从$string右边开始，去掉最短匹配子串    
-6. echo ${string%%3*1}    //abc12     从$string右边开始，去掉最长匹配子串    
+1. echo ${string#a*3}     //42341  从$string左边开始，去掉最短匹配子串    
+2. echo ${string#c*3}     //abc12342341  这样什么也没有匹配到    
+3. echo ${string#*c1*3}   //42341  从$string左边开始，去掉最短匹配子串    
+4. echo ${string##a*3}    //41     从$string左边开始，去掉最长匹配子串    
+5. echo ${string%3*1}     //abc12342  从$string右边开始，去掉最短匹配子串    
+6. echo ${string%%3*1}    //abc12     从$string右边开始，去掉最长匹配子串    
 
+1. str="abbc,def,ghi,abcjkl"  
 
+2. echo ${str#a*c}     # 输出,def,ghi,abcjkl  一个井号(#) 表示从左边截取掉最短的匹配 (这里把abbc字串去掉）  
 
-1. str="abbc,def,ghi,abcjkl"  
+3. echo ${str##a*c}    # 输出jkl，             两个井号(##) 表示从左边截取掉最长的匹配 (这里把abbc,def,ghi,abc字串去掉)  
 
-2. echo ${str#a*c}     # 输出,def,ghi,abcjkl  一个井号(#) 表示从左边截取掉最短的匹配 (这里把abbc字串去掉）  
+4. echo ${str#"a*c"}   # 输出abbc,def,ghi,abcjkl 因为str中没有"a*c"子串  
 
-3. echo ${str##a*c}    # 输出jkl，             两个井号(##) 表示从左边截取掉最长的匹配 (这里把abbc,def,ghi,abc字串去掉)  
+5. echo ${str##"a*c"}  # 输出abbc,def,ghi,abcjkl 同理  
 
-4. echo ${str#"a*c"}   # 输出abbc,def,ghi,abcjkl 因为str中没有"a*c"子串  
+6. echo ${str#*a*c*}   # 空  
 
-5. echo ${str##"a*c"}  # 输出abbc,def,ghi,abcjkl 同理  
+7. echo ${str##*a*c*}  # 空  
 
-6. echo ${str#*a*c*}   # 空  
+8. echo ${str#d*f)     # 输出abbc,def,ghi,abcjkl,   
 
-7. echo ${str##*a*c*}  # 空  
+9. echo ${str#*d*f}    # 输出,ghi,abcjkl     
 
-8. echo ${str#d*f)     # 输出abbc,def,ghi,abcjkl,   
+10. echo ${str%a*l}     # abbc,def,ghi  一个百分号(%)表示从右边截取最短的匹配   
 
-9. echo ${str#*d*f}    # 输出,ghi,abcjkl     
+11. echo ${str%%b*l}    # a             两个百分号表示(%%)表示从右边截取最长的匹配  
 
-10. echo ${str%a*l}     # abbc,def,ghi  一个百分号(%)表示从右边截取最短的匹配   
+12. echo ${str%a*c}     # abbc,def,ghi,abcjkl    
 
-11. echo ${str%%b*l}    # a             两个百分号表示(%%)表示从右边截取最长的匹配  
+ ```
 
-12. echo ${str%a*c}     # abbc,def,ghi,abcjkl    
-
- ```
-
-这里要注意，必须从字符串的第一个字符开始，或者从最后一个开始，可以这样记忆, 井号（#）通常用于表示一个数字，它是放在前面的；百分号（%）卸载数字的后面; 或者这样记忆，在键盘布局中，井号(#)总是位于百分号（%）的左边(即前面)  。
+这里要注意，必须从字符串的第一个字符开始，或者从最后一个开始，可以这样记忆, 井号（#）通常用于表示一个数字，它是放在前面的；百分号（%）卸载数字的后面; 或者这样记忆，在键盘布局中，井号(#)总是位于百分号（%）的左边(即前面)  。
 
 **7，匹配并且替换**
 ```shell
 
-1. echo ${string/23/bb}   //abc1bb42341  替换一次    
+1. echo ${string/23/bb}   //abc1bb42341  替换一次    
 
-2. echo ${string//23/bb}  //abc1bb4bb41  双斜杠替换所有匹配    
+2. echo ${string//23/bb}  //abc1bb4bb41  双斜杠替换所有匹配    
 
-3. echo ${string/#abc/bb} //bb12342341   #以什么开头来匹配，根php中的^有点像    
+3. echo ${string/#abc/bb} //bb12342341   #以什么开头来匹配，根php中的^有点像    
 
-4. echo ${string/%41/bb}  //abc123423bb  %以什么结尾来匹配，根php中的$有点像   
+4. echo ${string/%41/bb}  //abc123423bb  %以什么结尾来匹配，根php中的$有点像   
 
-5. str="apple, tree, apple tree"  
+5. str="apple, tree, apple tree"  
 
-6. echo ${str/apple/APPLE}   # 替换第一次出现的apple  
+6. echo ${str/apple/APPLE}   # 替换第一次出现的apple  
 
-7. echo ${str//apple/APPLE}  # 替换所有apple  
+7. echo ${str//apple/APPLE}  # 替换所有apple  
 
-8. echo ${str/#apple/APPLE}  # 如果字符串str以apple开头，则用APPLE替换它  
+8. echo ${str/#apple/APPLE}  # 如果字符串str以apple开头，则用APPLE替换它  
 
-9. echo ${str/%apple/APPLE}  # 如果字符串str以apple结尾，则用APPLE替换它  
+9. echo ${str/%apple/APPLE}  # 如果字符串str以apple结尾，则用APPLE替换它  
 
- 
+ 
 
-1. $ test='c:/windows/boot.ini'  
+1. $ test='c:/windows/boot.ini'  
 
-2. $ echo ${test/\//\\}  
+2. $ echo ${test/\//\\}  
 
-3. c:\windows/boot.ini  
+3. c:\windows/boot.ini  
 
-4. $ echo ${test//\//\\}  
+4. $ echo ${test//\//\\}  
 
-5. c:\windows\boot.ini  
+5. c:\windows\boot.ini  
 
-6. #${变量/查找/替换值} 一个“/”表示替换第一个，”//”表示替换所有,当查找中出现了：”/”请加转义符”\/”表示。  
+6. #${变量/查找/替换值} 一个“/”表示替换第一个，”//”表示替换所有,当查找中出现了：”/”请加转义符”\/”表示。  
 
- ```
+ ```
 
 **8. 比较**
 ```shell
-1. [[ "a.txt" == a* ]]        # 逻辑真 (pattern matching)  
-2. [[ "a.txt" =~ .*\.txt ]]   # 逻辑真 (regex matching)  
-3. [[ "abc" == "abc" ]]       # 逻辑真 (string comparision)   
-4. [[ "11" < "2" ]]           # 逻辑真 (string comparision), 按ascii值比较  
+1. [[ "a.txt" == a* ]]        # 逻辑真 (pattern matching)  
+2. [[ "a.txt" =~ .*\.txt ]]   # 逻辑真 (regex matching)  
+3. [[ "abc" == "abc" ]]       # 逻辑真 (string comparision)   
+4. [[ "11" < "2" ]]           # 逻辑真 (string comparision), 按ascii值比较  
 ```
 
  
