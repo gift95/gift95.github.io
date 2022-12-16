@@ -23,7 +23,6 @@
     "gulp-rename": "^2.0.0",
     "hexo": "^6.3.0",
     "hexo-abbrlink": "^2.2.1",
-    "hexo-admin": "^2.3.0",
     "hexo-blog-encrypt": "^3.1.6",
     "hexo-browsersync": "^0.3.0",
     "hexo-deployer-git": "^3.0.0",
