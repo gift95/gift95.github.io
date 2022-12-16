@@ -144,8 +144,3 @@ live2d:
     react:
       opacityDefault: 1
       opacityOnHover: 1
-admin:
-  username: liu
-  password_hash: $2a$10$ZPyCxCoxH59EUJiRZRInMu8PKHkwxvdCE43e4T5PeU1624qStWbqy
-  secret: $2a$12$P5.hYIed7/xLXstTJ/pBuO2KWRXgwJjUNOkMAoAO0WEzPqoW1A5vC
-  deployCommand: './admin_script.sh'
