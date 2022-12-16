@@ -849,18 +849,18 @@ inject:
   head:
     # - <link rel="stylesheet" href="/css/backgound.css">
     #- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@latest/Hexo/css/flink.min.css">
-    - <link rel="stylesheet" href="/css/tags.css">
+    - <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/gift95/gift95.github.io@master/themes/butterfly/source/css/tags.css">
     #- <link rel="stylesheet" href="/css/macblack.css">
-    - <link rel="stylesheet" href="/css/index.min.css">
-    - <link rel="stylesheet" href="/css/heartbeat.min.css">
-    - <script  src="/js/jquery-3.6.0.min.js"></script>
+    - <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/gift95/gift95.github.io@master/themes/butterfly/source/css/index.min.css">
+    - <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/gift95/gift95.github.io@master/themes/butterfly/source/css/heartbeat.min.css">
+    - <script  src="https://cdn.jsdelivr.net/gh/gift95/gift95.github.io@master/themes/butterfly/source/js/jquery-3.6.0.min.js"></script>
     
   bottom:
     # - <script src="xxxx"></script>
-    - <script async src="/js/hideMobileSidebar.js"></script>
-    - <script async src="/js/sakura.js"></script>
-    - <script async src="/js/footer.js"></script>
-    - <script  data-pjax src="/js/githubcalendar.js"></script>
+    - <script async src="https://cdn.jsdelivr.net/gh/gift95/gift95.github.io@master/themes/butterfly/source/js/hideMobileSidebar.js"></script>
+    - <script async src="https://cdn.jsdelivr.net/gh/gift95/gift95.github.io@master/themes/butterfly/source/js/sakura.js"></script>
+    - <script async src="https://cdn.jsdelivr.net/gh/gift95/gift95.github.io@master/themes/butterfly/source/js/footer.js"></script>
+    - <script  data-pjax src="https://cdn.jsdelivr.net/gh/gift95/gift95.github.io@master/themes/butterfly/source/js/githubcalendar.js"></script>
 
 # CDN
 # Don't modify the following settings unless you know how they work
