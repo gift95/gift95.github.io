@@ -2,10 +2,9 @@
 title: Vue 学习
 tags: Vue
 top_img: /img/topic.jpg
+
 abbrlink: 5106d60a
 ---
-
-
 
 # 学习目标
 
@@ -1491,7 +1490,7 @@ const myList = {
   template:
     '\
         <ul>\
-        	<li v-for="item in items" :key="item.id">{{item.id}} : {{item.name}}</li>\
+            <li v-for="item in items" :key="item.id">{{item.id}} : {{item.name}}</li>\
         </ul>\
         ',
   props: {
@@ -1741,8 +1740,8 @@ const registerForm = {
     '\
     <div>\
     <h2>注册页</h2> \
-    用&ensp;户&ensp;名：<input type="text"><br/>\
-    密&emsp;&emsp;码：<input type="password"><br/>\
+    用 户 名：<input type="text"><br/>\
+    密  码：<input type="password"><br/>\
     确认密码：<input type="password"><br/>\
     </div>\
     ',
@@ -1913,19 +1912,19 @@ webpack 4+ 版本，你还需要安装 CLI ，输入命令：`npm install webpac
 学习 Webpack，你需要先理解四个**核心概念**：
 
 - 入口(entry)
-
+  
   webpack 打包的起点，可以有一个或多个，一般是 js 文件。webpack 会从启点文件开始，寻找启点直接或间接依赖的其它所有的依赖，包括 JS、CSS、图片资源等，作为将来打包的原始数据
 
 - 输出(output)
-
+  
   出口一般包含两个属性：path 和 filename。用来告诉 webpack 打包的目标文件夹，以及文件的名称。目的地也可以有多个。
 
 - 加载器（loader）
-
+  
   webpack 本身只识别 Js 文件，如果要加载非 JS 文件，必须指定一些额外的加载器（loader），例如 css-loader。然后将这些文件转为 webpack 能处理的有效模块，最后利用 webpack 的打包能力去处理。
 
 - 插件(plugins)
-
+  
   插件可以扩展 webpack 的功能，让 webpack 不仅仅是完成打包，甚至各种更复杂的功能，或者是对打包功能进行优化、压缩，提高效率。
 
 ## 8.3.编写 webpack 配置
@@ -1979,7 +1978,7 @@ var vm = new Vue({
 - 原来的 index.html 中引入了很多其它 js，在这里我们使用 es6 的 import 语法进行导入。
 
 - 注意，要使用 import，就需要在 login.js 和 register.js 中添加 export 导出语句：
-
+  
   ```js
   const loginForm = {
     template:
@@ -1987,22 +1986,22 @@ var vm = new Vue({
          <div>\
               <h2>登陆页</h2>\
               用户名：<input type="text"><br>\
-              密&emsp;码：<input type="password">\
+              密 码：<input type="password">\
          </div>',
   };
   export default loginForm;
   ```
-
+  
   register.js:
-
+  
   ```js
   const registerForm = {
     template:
       '\
       <div>\
       <h2>注册页</h2> \
-      用&ensp;户&ensp;名：<input type="text"><br/>\
-      密&emsp;&emsp;码：<input type="password"><br/>\
+      用 户 名：<input type="text"><br/>\
+      密  码：<input type="password"><br/>\
       确认密码：<input type="password"><br/>\
       </div>\
       ',
