@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "constantinople": "^4.0.1",
-    "core-js": "^3.26.1",
+    "core-js": "^3.27.0",
     "gitalk": "^1.8.0",
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.3.0",
